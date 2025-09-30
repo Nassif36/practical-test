@@ -1448,13 +1448,14 @@
         "image_GARpam": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/image-1.jpg",
             "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 37,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
-            "height": "fit",
+            "height": "fill",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -1534,7 +1535,7 @@
             "text_wtTiMK": {
               "type": "text",
               "settings": {
-                "text": "<p>At Splash, subscribing to regular shipments is a benefit - you get consistently great pricesand you are totally in control. As an added bonus, if you subscribe today, youll get $20 off yourfirst shipment - just use the codeSUBSCRIBEat checkout! That means you that can get15 bottles for just $69+FREEShipping- our best ever price<br/></p>",
+                "text": "<p>At Splash, subscribing to regular shipments is a benefit - you get consistently great prices and you are totally in control. As an added bonus, if you subscribe today, youll get $20 off yourfirst shipment - just use the codeSUBSCRIBEat checkout! That means you that can get15 bottles for just $69+FREEShipping- our best ever price<br/></p>",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "center",

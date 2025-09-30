@@ -1221,7 +1221,7 @@
                   },
                   "blocks": {}
                 },
-                "button_TGKLQT": {
+                "button_cTTNAC": {
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
@@ -1239,7 +1239,7 @@
               },
               "block_order": [
                 "text_q8m76Y",
-                "button_TGKLQT"
+                "button_cTTNAC"
               ]
             }
           },

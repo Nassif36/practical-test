@@ -1292,7 +1292,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/bottles-icon.png",
+                "image": "shopify://shop_images/box-icon.png",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "custom",
@@ -1355,7 +1355,7 @@
                   "type": "text",
                   "name": "Description",
                   "settings": {
-                    "text": "<p>With plenty of options, expertly selected, ourcurated cases are perfect for exploring new wines</p>",
+                    "text": "<p>Know what you like? Start from scratch and <strong>buildy our own 15-bottle case</strong>, bottle by bottle<br/></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",

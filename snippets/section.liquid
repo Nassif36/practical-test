@@ -52,6 +52,7 @@
         layout-panel-flex
         layout-panel-flex--{{ section.settings.content_direction }}
         section-content-wrapper
+        {% if section.settings.multi_row_mobile == true %} multirow_mobile {%  endif %}
         {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
       "
       style="

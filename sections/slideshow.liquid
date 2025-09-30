@@ -15,6 +15,14 @@
   {% endcapture %}
 {% endif %}
 
+{%  style %}
+        
+    .slide__image-container,
+    .slide__content {
+      border-radius: {{ section.settings.border-radius }}px;
+    }
+{% endstyle %}
+
 {% capture slides %}
   {% content_for 'blocks' %}
 {% endcapture %}
@@ -31,7 +39,7 @@
   endif
 %}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section-background  color-{{ section.settings.color_scheme }}"></div>
 <div
   class="spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} disable-section-top-offset"
   style="{% render 'spacing-padding', settings: section.settings %}"
@@ -62,6 +70,16 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "range",
+      "id": "border-radius",
+      "label": "Slide border radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 25
+    },
     {
       "type": "select",
       "id": "icons_style",

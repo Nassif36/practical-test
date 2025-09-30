@@ -2326,10 +2326,14 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 @media screen and (max-width: 749px) {
-  .mobile-column {
+  .mobile-column:not(.multirow_mobile) {
     flex-flow: column nowrap;
     align-items: var(--horizontal-alignment);
     justify-content: var(--vertical-alignment-mobile);
+  }
+  .multirow_mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
   }
 
   .layout-panel-flex--row:not(.mobile-column) {

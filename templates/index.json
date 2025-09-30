@@ -299,6 +299,7 @@
       ],
       "name": "t:names.slideshow",
       "settings": {
+        "border-radius": 25,
         "icons_style": "arrows_large",
         "slideshow_controls_style": "dots",
         "color_scheme": "scheme-1",
@@ -811,6 +812,7 @@
       "name": "t:names.icons_with_text",
       "settings": {
         "content_direction": "row",
+        "multi_row_mobile": true,
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
         "vertical_alignment": "center",
@@ -1063,6 +1065,7 @@
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
+        "multi_row_mobile": false,
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -1412,6 +1415,7 @@
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
+        "multi_row_mobile": false,
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
         "vertical_alignment": "center",
@@ -1581,6 +1585,7 @@
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
+        "multi_row_mobile": false,
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",

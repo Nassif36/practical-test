@@ -1,0 +1,34 @@
+{%- doc -%}
+  This snippet renders an individual product card for the swiper slider.
+  It displays the product title, featured image, product price, and an "Add to Cart" button.
+
+  @param {object} product - The product object containing details for the card.
+{%- enddoc -%}
+
+{% liquid
+  assign product_title = product.title
+  assign product_image = product.featured_media | image_url: width: 300
+  assign product_price = product.price | money
+  assign can_add_to_cart = product.available
+  assign add_to_cart_text = 'Add to Cart'
+  assign variant_id = product.selected_or_first_available_variant.id
+
+%}
+
+<div class="swiper-slide product-swiper-card">
+  <p class="product-title h4">{{ product_title }}</p>
+  <img src="{{ product_image }}" alt="{{ product_title }}" class="product-image" />
+  
+  <div class="swiper-card_info">
+    <p class="product-price">{{ product_price }}</p>
+    <form method="post" action="{{ routes.cart_add_url }}" class="add-to-cart-form" style="display:inline;">
+      <input type="hidden" name="id" value="{{ variant_id }}">
+      {% render 'add-to-cart-button', 
+        can_add_to_cart: can_add_to_cart, 
+        add_to_cart_text: add_to_cart_text,
+        product: product 
+      %}
+    </form>
+
+  </div>
+</div>

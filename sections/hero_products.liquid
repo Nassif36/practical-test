@@ -1,0 +1,142 @@
+{% liquid
+  assign collection_handle = section.settings.product_collection
+  assign collection = collections[collection_handle]
+  assign products_to_show = section.settings.products_to_show | default: 5
+%}
+{{ 'hero-swiper.css' | asset_url | stylesheet_tag }}
+
+<div
+  id="HeroProducts-{{ section.id }}"
+  class="hero-products-section section-wrapper color-{{ section.settings.color_scheme }}"
+>
+  <div class="hero-products__container">
+    <div class="hero-products__left">
+      {% if section.settings.hero_image %}
+        <div class="hero-products__image">
+          <img src="{{ section.settings.hero_image | image_url: width: 600 }}" alt="{{ section.settings.hero_heading }}">
+        </div>
+      {% endif %}
+      <div class="hero-products__text">
+        {% if section.settings.hero_heading %}
+        <h2 class="hero-products__heading">{{ section.settings.hero_heading }}</h2>
+        {% endif %}
+        {% if section.settings.hero_paragraph %}
+        <p class="hero-products__paragraph">{{ section.settings.hero_paragraph }}</p>
+        {% endif %}
+        {% if section.settings.hero_button_text %}
+        <a href="{{ section.settings.hero_button_link }}" class="hero-products__button button">
+          {{ section.settings.hero_button_text }}
+        </a>
+        {%  endif %}
+      </div>
+    </div>
+    <div class="hero-products__right">
+      <div class="swiper hero-products-swiper">
+        <div class="swiper-wrapper">
+          {% if collection and collection.products.size > 0 %}
+            {% for product in collection.products limit: products_to_show %}
+              <div class="swiper-slide">
+                {% render 'product-swiper-card', product: product %}
+              </div>
+            {% endfor %}
+          {% else %}
+            <div>No products found in this collection.</div>
+          {% endif %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.hero-products-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Hero Products",
+  "tag": "section",
+  "class": "hero-products-section section-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Hero Section Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero Heading",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_paragraph",
+      "label": "Hero Paragraph",
+      "default": "Discover our exclusive products and offers."
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Hero Button Text",
+      "default": "Shop Collection"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Hero Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Product Slider Settings"
+    },
+    {
+      "type": "collection",
+      "id": "product_collection",
+      "label": "Select Product Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Number of Products to Show",
+      "min": 1,
+      "max": 10,
+      "default": 5
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Products"
+    }
+  ]
+}
+{% endschema %}

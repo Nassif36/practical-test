@@ -17,8 +17,8 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": "",
+            "text": "Give $25, Get $25 — Learn More",
+            "link": "shopify://pages/contact",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
             "weight": "",
